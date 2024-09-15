@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组队</title>
+    <style>
+		.nav-bar {
+		    display: flex;
+		    justify-content: space-around;
+		    background-color: white;
+		    padding: 10px 0;
+		    position: fixed;
+		    bottom: 0;
+		    width: 100%;
+		    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+		}
+		.nav-bar div {
+		    text-align: center;
+		    font-size: 16px;
+		    color: #555;
+		    cursor: pointer;
+		}
+		.nav-bar div.active {
+		    color: #ff69b4;
+		}
+		.nav-bar p{
+			font-size: 17px;
+		}
+		        body {
+		            margin: 0;
+		            padding: 0;
+		            font-family: 'Arial', sans-serif;
+		            background-color: #f5f9f8;
+		        }
+		
+		        .header {
+		            position: relative;
+		            height: 200px;
+		            background-image: url('zudui.jpg');
+		            background-size: cover;
+		            background-position: center;
+		            display: flex;
+		            justify-content: space-between;
+		            align-items: flex-start;
+		            padding: 15px;
+		            color: #fff;
+		        }
+		
+		        .header .left {
+		            display: flex;
+		            align-items: center;
+		        }
+		
+		        .header .left .title {
+		            font-size: 30px;
+		            font-weight: bold;
+		            margin-right: 30px;
+					color:#87ceeb;
+		        }
+		
+		        .header .left .location {
+		            font-size: 28px;
+		            display: flex;
+		            align-items: center;
+		        }
+		
+		        .header .left .location::after {
+		            content: "⬇";
+		            margin-left: 5px;
+		            font-size: 28px;
+		        }
+		
+		        .search-container {
+		            position: absolute;
+		            top: 150px;
+		            left: 50%;
+		            transform: translateX(-50%);
+		            width: 80%;
+		        }
+		
+		        .search-bar {
+		            width: 100%;
+		            background-color: #fff;
+		            border-radius: 20px;
+		            padding: 15px;
+		            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		            text-align: left;
+		        }
+		
+		        .search-bar input {
+		            width: 100%;
+		            border: none;
+		            outline: none;
+		            font-size: 16px;
+		            color: #999;
+		        }
+		
+    </style>
+</head>
+<body>
+        <div class="header">
+            <div class="left">
+                <div class="title">看世界</div>
+				<div class="location" onclick="navigateTo('bendi.html')">找朋友</div>
+            </div>
+        </div>
+    
+        <div class="search-container">
+            <div class="search-bar">
+                <input type="text" placeholder="想去哪儿，搜一搜">
+            </div>
+        </div>
+
+    <div class="nav-bar">
+        <div onclick="navigateTo('jingxuan.html')">
+            <p>精选</p>
+    	</div>
+        <div class="active" onclick="navigateTo('zudui.html')">
+            <p>组队</p>
+        </div>
+        <div onclick="navigateTo('piaojia.html')">
+            <p>票夹</p>
+        </div>
+    	<div onclick="navigateTo('my.html')">
+    	    <p>我的</p>
+    	</div>
+        </div>
+    </div>
+    <script>
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>精选</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            background-color: #fff;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .header .location {
+            font-size: 20px;
+            color: #000;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .header .time {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+            color: #000;
+        }
+
+        .header .search-bar {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 20px;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .header .search-bar input {
+            border: none;
+            background: transparent;
+            width: 100%;
+            padding: 0 10px;
+            font-size: 17px;
+            color: #333;
+			padding: 8px;
+        }
+
+        .header .search-bar button {
+            border: none;
+            background: none;
+            font-size: 13px;
+            color: #ff69b4;
+            cursor: pointer;
+        }
+		.content {
+		            padding-bottom: 60px; /* 底部空间，以防止内容被底部栏覆盖 */
+		        }
+        .menu {
+            display: flex;
+            justify-content: space-around;
+            background-color: #fff;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .menu-item {
+            text-align: center;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .menu-item img {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 5px;
+        }
+
+        .recommend-section,
+        .must-see-section {
+            padding: 15px;
+            background-color: #fff;
+            margin-top: 10px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        .recommend-item,
+        .must-see-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .recommend-item img,
+        .must-see-item img {
+            width: 60px;
+            height: 60px;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+
+        .recommend-item .details,
+        .must-see-item .details {
+            flex-grow: 1;
+        }
+
+        .recommend-item .details .price,
+        .must-see-item .details .price {
+            color: #e40077;
+            font-size: 14px;
+        }
+
+        .recommend-item .details .title,
+        .must-see-item .details .title {
+            font-size: 14px;
+            color: #000;
+        }
+
+        .recommend-item .details .time,
+        .must-see-item .details .time {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+        }
+
+        .footer-item {
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .footer-item img {
+            width: 24px;
+            height: 24px;
+            display: block;
+            margin: 0 auto 5px;
+        }
+
+        .footer-item.active {
+            color: #e40077;
+        }
+
+        .footer-item.active img {
+            filter: grayscale(100%) brightness(0%) contrast(0%);
+        }
+		.nav-bar {
+		    display: flex;
+		    justify-content: space-around;
+		    background-color: white;
+		    padding: 10px 0;
+		    position: fixed;
+		    bottom: 0;
+		    width: 100%;
+		    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+		}
+		.nav-bar div {
+		    text-align: center;
+		    font-size: 16px;
+		    color: #555;
+		    cursor: pointer;
+		}
+		.nav-bar div.active {
+		    color: #ff69b4;
+		}
+		.nav-bar p{
+			font-size: 17px;
+		}
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="location">A城</div>
+		<div class="search-bar">
+		    <input type="text" placeholder="搜索">
+		    <button>搜索</button>
+		</div>
+    </div>
+	
+<div class="content">
+    <div class="menu">
+        <div class="menu-item">
+            <img src="yanchanghui.jpg" alt="演唱会">
+            <div>演唱会</div>
+        </div>
+        <div class="menu-item">
+            <img src="yinyuejie.jpg" alt="音乐节">
+            <div>音乐节</div>
+        </div>
+        <div class="menu-item">
+            <img src="livehouse.jpg" alt="Livehouse">
+            <div>Livehouse</div>
+        </div>
+        <div class="menu-item">
+            <img src="huaju.jpg" alt="话剧">
+            <div>话剧</div>
+        </div>
+        <div class="menu-item">
+            <img src="tuokouxiu.jpg" alt="脱口秀">
+            <div>脱口秀</div>
+        </div>
+    </div>
+	<div class="menu">
+	    <div class="menu-item">
+	        <img src="dianying.jpg" alt="电影">
+	        <div>电影</div>
+	    </div>
+	    <div class="menu-item">
+	        <img src="zhanlan.jpg" alt="展览">
+	        <div>展览</div>
+	    </div>
+	    <div class="menu-item">
+	        <img src="ertong.jpg" alt="儿童亲子">
+	        <div>儿童亲子</div>
+	    </div>
+	    <div class="menu-item">
+	        <img src="xiangsheng.jpg" alt="相声">
+	        <div>相声</div>
+	    </div>
+	    <div class="menu-item">
+	        <img src="yinyuehui.jpg" alt="音乐会">
+	        <div>音乐会</div>
+	    </div>
+	</div>
+    <div class="recommend-section">
+        <div class="section-title">爆款推荐</div>
+        <div class="recommend-item" onclick="navigateTo('wangtao.html')">
+            <img src="yanchanghui.jpg" alt="">
+            <div class="details">
+                <div class="title">2024旺桃WT巡回演唱会</div>
+                <div class="time">纽约</div>
+                <div class="price">¥1080起</div>
+            </div>
+        </div>
+		<div class="recommend-item">
+		    <img src="yanchanghui.jpg" alt="">
+		    <div class="details">
+		        <div class="title">2024望月WY巡回演唱会</div>
+		        <div class="time">伦敦</div>
+		        <div class="price">¥980起</div>
+		    </div>
+		</div>
+		<div class="recommend-item">
+		    <img src="yanchanghui.jpg" alt="">
+		    <div class="details">
+		        <div class="title">2024勺一燃SYR巡回演唱会</div>
+		        <div class="time">日内瓦</div>
+		        <div class="price">¥880起</div>
+		    </div>
+		</div>
+		<div class="recommend-item">
+		    <img src="yanchanghui.jpg" alt="">
+		    <div class="details">
+		        <div class="title">2024灯灰岩DHY巡回演唱会</div>
+		        <div class="time">雷克雅未克</div>
+		        <div class="price">¥680起</div>
+		    </div>
+		</div>
+		<div class="recommend-item">
+		    <img src="yanchanghui.jpg" alt="">
+		    <div class="details">
+		        <div class="title">2024药箱YX巡回演唱会</div>
+		        <div class="time">悉尼</div>
+		        <div class="price">¥380起</div>
+		    </div>
+		</div>
+    </div>
+
+    <div class="must-see-section">
+        <div class="section-title">必看音乐节</div>
+        <div class="must-see-item">
+            <img src="yinyuejie.jpg" alt="演出">
+            <div class="details">
+                <div class="title">[云南]高原音乐盛典</div>
+                <div class="price">¥199起</div>
+            </div>
+        </div>
+		<div class="must-see-item">
+		    <img src="yinyuejie.jpg" alt="演出">
+		    <div class="details">
+		        <div class="title">[上海]都市节拍音乐节</div>
+		        <div class="price">¥299起</div>
+		    </div>
+		</div>
+		<div class="must-see-item">
+		    <img src="yinyuejie.jpg" alt="演出">
+		    <div class="details">
+		        <div class="title">[海南]沙滩音乐狂欢节</div>
+		        <div class="price">¥199起</div>
+		    </div>
+		</div>
+    </div>
+	
+	<div class="recommend-section">
+	    <div class="section-title">预售早鸟</div>
+	    <div class="recommend-item">
+	        <img src="livehouse.jpg" alt="livehouse">
+	        <div class="details">
+	            <div class="title">先行者特惠早鸟票</div>
+	            <div class="price">¥100起</div>
+	        </div>
+	    </div>
+		<div class="recommend-item">
+		    <img src="livehouse.jpg" alt="livehouse">
+		    <div class="details">
+		        <div class="title">限时抢先早鸟预售</div>
+		        <div class="price">¥200起</div>
+		    </div>
+		</div>
+		<div class="recommend-item">
+		    <img src="livehouse.jpg" alt="livehouse">
+		    <div class="details">
+		        <div class="title">早鸟专享预售优惠</div>
+		        <div class="price">¥200起</div>
+		    </div>
+		</div>
+		<div class="recommend-item">
+		    <img src="livehouse.jpg" alt="livehouse">
+		    <div class="details">
+		        <div class="title">早鸟启航，预售盛惠</div>
+		        <div class="price">¥200起</div>
+		    </div>
+		</div>
+	</div>
+	
+	<div class="recommend-section">
+	    <div class="section-title">经典话剧</div>
+	    <div class="recommend-item">
+	        <img src="huaju.jpg" alt="话剧">
+	        <div class="details">
+	            <div class="title">岁月悠悠话当年</div>
+	            <div class="price">¥288起</div>
+	        </div>
+	    </div>
+		<div class="recommend-item">
+		    <img src="huaju.jpg" alt="话剧">
+		    <div class="details">
+		        <div class="title">人生舞台·经典再现</div>
+		        <div class="price">¥288起</div>
+		    </div>
+		</div>
+		<div class="recommend-item">
+		    <img src="huaju.jpg" alt="话剧">
+		    <div class="details">
+		        <div class="title">时光深处·话剧经典</div>
+		        <div class="price">¥288起</div>
+		    </div>
+		</div>
+		<div class="recommend-item">
+		    <img src="huaju.jpg" alt="话剧">
+		    <div class="details">
+		        <div class="title">话剧瑰宝·永恒篇章</div>
+		        <div class="price">¥288起</div>
+		    </div>
+		</div>
+	</div>
+	<div class="recommend-section">
+	    <div class="section-title">热映影片</div>
+	    <div class="recommend-item">
+	        <img src="dianying.jpg" alt="影片">
+	        <div class="details">
+	            <div class="title">抓娃娃</div>
+	            <div class="price">¥38</div>
+	        </div>
+	    </div>
+		<div class="recommend-item">
+		    <img src="dianying.jpg" alt="影片">
+		    <div class="details">
+		        <div class="title">流浪地球2</div>
+		        <div class="price">¥38</div>
+		    </div>
+		</div>
+		<div class="recommend-item">
+		    <img src="dianying.jpg" alt="影片">
+		    <div class="details">
+		        <div class="title">异形：夺命舰</div>
+		        <div class="price">¥38</div>
+		    </div>
+		</div>
+		<div class="recommend-item">
+		    <img src="dianying.jpg" alt="影片">
+		    <div class="details">
+		        <div class="title">祝你幸福</div>
+		        <div class="price">¥38</div>
+		    </div>
+		</div>
+		<div class="recommend-item">
+		    <img src="dianying.jpg" alt="影片">
+		    <div class="details">
+		        <div class="title">白蛇：浮生</div>
+		        <div class="price">¥38</div>
+		    </div>
+		</div>
+	</div>
+</div>
+	<div class="nav-bar">
+	    <div class="active" onclick="navigateTo('jingxuan.html')">
+	        <p>精选</p>
+		</div>
+	    <div onclick="navigateTo('zudui.html')">
+	        <p>组队</p>
+	    </div>
+	    <div onclick="navigateTo('piaojia.html')">
+	        <p>票夹</p>
+	    </div>
+		<div onclick="navigateTo('my.html')">
+		    <p>我的</p>
+		</div>
+	    </div>
+	</div>
+	<script>
+	    function navigateTo(page) {
+	        window.location.href = page;
+	    }
+	</script>
+
+</body>
+</html>

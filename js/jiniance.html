@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>票根纪念册</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #9F5F9F;
+            color: white;
+            padding: 1em 0;
+        }
+        main {
+            padding: 2em;
+        }
+        .ticket-img {
+            width: 45%;
+            margin: 1em;
+            display: inline-block;
+        }
+        .ticket-img img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        footer {
+            position: fixed;
+            bottom: 1em;
+            width: 100%;
+        }
+        .add-button {
+            display: inline-block;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 2em;
+            line-height: 50px;
+            text-align: center;
+            cursor: pointer;
+        }
+		.left {
+		    display: flex;
+		    align-items: center;
+		}
+    </style>
+</head>
+<body>
+    <header>
+		<div class="left">
+			<div class="location" onclick="navigateTo('piaojia.html')">◀返回</div>
+		</div>
+        <h1>票根纪念册</h1>
+    </header>
+    <main>
+        <div class="ticket-img">
+			<img src="jinianpiao.jpg" alt="ji" />
+		</div>
+    </main>
+    <footer>
+            <div class="add-button">
+                +
+            </div>
+    </footer>
+</body>
+<script>
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+    </script>
+</html>

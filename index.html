@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抢票宝</title>
+    <style>
+		 #cover-page {
+		        position: fixed;
+		        top: 0;
+		        left: 0;
+		        width: 100%;
+		        height: 100vh;
+		        z-index: 9999;
+		        display: flex;
+		        align-items: center;
+		        justify-content: center;
+		        background-color: #000; /* 背景颜色可根据需要调整 */
+		    }
+		
+		    .cover-button-container {
+		        position: absolute;
+		        bottom: 20%;
+		        text-align: center;
+		    }
+		
+		    .cover-button-container button {
+		        background-color: #4CAF50;
+		        color: white;
+		        border: none;
+		        border-radius: 5px;
+		        padding: 10px 20px;
+		        font-size: 16px;
+		        cursor: pointer;
+		        transition: background-color 0.3s ease;
+		    }
+		
+		    .cover-button-container button:hover {
+		        background-color: #45a049;
+		    }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #popup {
+            width: 300px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            position: relative;
+            overflow-y: auto;
+            max-height: 70vh; /* 限制弹窗的最大高度 */
+        }
+        #popup h2 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        #popup p {
+            font-size: 14px;
+            text-align: left;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        #popup a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        #popup .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        #popup .buttons button {
+            width: 48%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        #agree {
+            background-color: #ffc107;
+            color: white;
+        }
+        #disagree {
+            background-color: #e0e0e0;
+        }
+		#popup, #location-permission, #contacts-permission, #storage-permission, #microphone-permission, #camera-permission, #phone-permission {
+			width: 80%;
+			max-width: 500px;
+			margin: 100px auto;
+			background-color: #fff;
+			border-radius: 10px;
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+			text-align: center;
+			padding: 20px;
+			font-family: Arial, sans-serif;
+			line-height: 1.6;
+		}
+					
+		/* Title styling */
+		#popup h2, #location-permission h2, #contacts-permission h2, #storage-permission h2, #microphone-permission h2, #camera-permission h2, #phone-permission h2 {
+			font-size: 24px;
+			color: #333;
+			margin-bottom: 15px;
+		}
+					
+		/* Content styling */
+		#content {
+			font-size: 16px;
+			color: #555;
+			text-align: left;
+		}
+					
+		#content ul {
+			list-style-type: disc;
+			padding-left: 20px;
+		}
+					
+		#content ul li {
+			margin-bottom: 10px;
+		}
+					
+		/* Buttons styling */
+		.buttons {
+			margin-top: 20px;
+		}
+					
+		.buttons button {
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			padding: 10px 20px;
+			font-size: 16px;
+			cursor: pointer;
+			margin: 5px;
+			transition: background-color 0.3s ease;
+		}
+					
+		.buttons button:hover {
+			background-color: #45a049;
+		}
+					
+		.buttons button#disagree, .buttons button#location-deny, .buttons button#contacts-deny,
+		.buttons button#storage-deny, .buttons button#microphone-deny, .buttons button#camera-deny, .buttons button#phone-deny {
+			background-color: #f44336;
+		}
+					
+		.buttons button#disagree:hover, .buttons button#location-deny:hover, .buttons button#contacts-deny:hover,
+		.buttons button#storage-deny:hover, .buttons button#microphone-deny:hover, .buttons button#camera-deny:hover, .buttons button#phone-deny:hover {
+			background-color: #d32f2f;
+		}
+		video {
+		    width: 100%;
+		    height: auto;
+		}
+    </style>
+</head>
+<body>
+	
+<div id="cover-page" style="display: flex; align-items: center; justify-content: center; height: 100vh; background-color: #000;">
+    <img src="img/qiangpiaobao.png" alt="Cover Image" style="max-width: 100%; max-height: 100%;">
+    <div class="cover-button-container">
+        <button id="enter-site">进入"抢票宝"</button>
+    </div>
+</div>
+
+<div id="popup">
+    <h2>"抢票宝"隐私政策</h2>
+    <div id="content">
+        <p>欢迎使用"抢票宝"，我们非常重视您的个人信息和隐私保护。</p>
+        <p>在您使用"抢票宝"服务之前，请您仔细阅读《<a href="js/index.html">隐私政策</a>》，我们将严格按照经您同意的各项条款使用您的个人信息，以便为您提供更好的服务。</p>
+        <p>如您同意此政策，请点击【同意】开始使用我们的产品和服务，我们尽全力保护您的个人信息安全。</p>
+    </div>
+	<video id="myVideo" controls>
+	    <source src="img/1.mp4" type="video/mp4">
+	    您的浏览器不支持HTML5视频标签。
+	</video>
+	<video id="myVideo" controls>
+	    <source src="img/2.mp4" type="video/mp4">
+	    您的浏览器不支持HTML5视频标签。
+	</video>
+    <div class="buttons">
+        <button id="agree" onclick="agreeAction()">同意</button>
+        <button id="disagree">不同意</button>
+    </div>
+</div>
+    
+    <script>
+		document.getElementById('enter-site').addEventListener('click', function() {
+		        document.getElementById('cover-page').style.display = 'none';
+		        document.getElementById('popup').style.display = 'block';
+		    });
+		function agreeAction() {
+		        window.location.href = "js/storage.html";
+		    }	
+		document.getElementById('disagree').addEventListener('click', function() {
+		        alert('请您同意隐私政策后方可使用');
+		});
+    </script>
+</body>
+</html>
